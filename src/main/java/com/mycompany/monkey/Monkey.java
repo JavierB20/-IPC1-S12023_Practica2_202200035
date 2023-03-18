@@ -8,7 +8,6 @@ import javax.swing.JFrame;
  */
 
 public class Monkey extends JFrame{
-
     
     public Monkey() {
         setTitle("MonkeySimulation");
@@ -18,7 +17,8 @@ public class Monkey extends JFrame{
         this.getContentPane().add(ventana);
         this.pack();
         this.setLocationRelativeTo(null);
-            this.setVisible(true);
+        this.setVisible(true);
+            
     }
     
     public static void main(String[] args) {

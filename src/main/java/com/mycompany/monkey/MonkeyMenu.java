@@ -326,79 +326,79 @@ public class MonkeyMenu extends javax.swing.JFrame {
         String strTiempoSalida = txtTiempoSalida.getText();
         String strCostoSalida = txtCostoSalida.getText();
         
-//        if(Restricciones.isNullOrEmpty(strTiempoInventario)) {
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de inventario no puede ir vacio");
-//        }
-//        else if(Restricciones.isNullOrEmpty(strCostoInventario)) {
-//            JOptionPane.showMessageDialog(null, "El campo costo de inventario no puede ir vacio");
-//        }
-//        else if(Restricciones.isNullOrEmpty(strTiempoProduccion)) {
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de producción no puede ir vacio");
-//        }
-//        else if(Restricciones.isNullOrEmpty(strCostoProduccion)) {
-//            JOptionPane.showMessageDialog(null, "El campo costo de producción no puede ir vacio");
-//        }
-//        else if(Restricciones.isNullOrEmpty(strTiempoEmpaquetado)) {
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de empaquetado no puede ir vacio");
-//        }
-//        else if(Restricciones.isNullOrEmpty(strCostoEmpaquetado)) {
-//            JOptionPane.showMessageDialog(null, "El campo costo de empaquetado no puede ir vacio");
-//        }
-//        else if(Restricciones.isNullOrEmpty(strTiempoSalida)) {
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de salida no puede ir vacio");
-//        }
-//        else if(Restricciones.isNullOrEmpty(strCostoSalida)) {
-//            JOptionPane.showMessageDialog(null, "El campo costo de salida no puede ir vacio");
-//        }
-//        
-//        else if(!Restricciones.soloNumeros(strTiempoInventario)){
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de inventario solo acepta numeros enteros");
-//        }
-//        else if(!Restricciones.soloNumeros(strCostoInventario)){
-//            JOptionPane.showMessageDialog(null, "El campo costo de inventario solo acepta numeros enteros");
-//        }
-//        else if(!Restricciones.soloNumeros(strTiempoProduccion)){
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de producción solo acepta numeros enteros");
-//        }
-//        else if(!Restricciones.soloNumeros(strCostoProduccion)){
-//            JOptionPane.showMessageDialog(null, "El campo costo de producción solo acepta numeros enteros");
-//        }
-//        else if(!Restricciones.soloNumeros(strTiempoEmpaquetado)){
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de empaquetado solo acepta numeros enteros");
-//        }
-//        else if(!Restricciones.soloNumeros(strCostoEmpaquetado)){
-//            JOptionPane.showMessageDialog(null, "El campo costo de empaquetado solo acepta numeros enteros");
-//        }
-//        else if(!Restricciones.soloNumeros(strTiempoSalida)){
-//            JOptionPane.showMessageDialog(null, "El campo tiempo de salida solo acepta numeros enteros");
-//        }
-//        else if(!Restricciones.soloNumeros(strCostoSalida)){
-//            JOptionPane.showMessageDialog(null, "El campo costo de salida solo acepta numeros enteros");
-//        }
-//        
-//        else {
-//            VaraiblesGlobales.tiempoInventario = Integer.parseInt(strTiempoInventario);
-//            VaraiblesGlobales.costoInventario = Integer.parseInt(strTiempoInventario);
-//            VaraiblesGlobales.tiempoProduccion = Integer.parseInt(strTiempoProduccion);
-//            VaraiblesGlobales.costoProduccion = Integer.parseInt(strCostoProduccion);
-//            VaraiblesGlobales.tiempoEmpaquetado = Integer.parseInt(strTiempoEmpaquetado);
-//            VaraiblesGlobales.costoEmpaquetado = Integer.parseInt(strCostoEmpaquetado);
-//            VaraiblesGlobales.tiempoSalida = Integer.parseInt(strCostoSalida);
-//            VaraiblesGlobales.costoSalida = Integer.parseInt(strCostoSalida);
-//            
-//            VaraiblesGlobales.strTiempoInventario = strTiempoInventario;
-//            VaraiblesGlobales.strCostoInventario = strTiempoInventario;
-//            VaraiblesGlobales.strTiempoProduccion = strTiempoProduccion;
-//            VaraiblesGlobales.strCostoProduccion = strCostoProduccion;
-//            VaraiblesGlobales.strTiempoEmpaquetado = strTiempoEmpaquetado;
-//            VaraiblesGlobales.strCostoEmpaquetado = strCostoEmpaquetado;
-//            VaraiblesGlobales.strTiempoSalida = strCostoSalida;
-//            VaraiblesGlobales.strCostoSalida = strCostoSalida;
+        if(Restricciones.isNullOrEmpty(strTiempoInventario)) {
+            JOptionPane.showMessageDialog(null, "El campo tiempo de inventario no puede ir vacio");
+        }
+        else if(Restricciones.isNullOrEmpty(strCostoInventario)) {
+            JOptionPane.showMessageDialog(null, "El campo costo de inventario no puede ir vacio");
+        }
+        else if(Restricciones.isNullOrEmpty(strTiempoProduccion)) {
+            JOptionPane.showMessageDialog(null, "El campo tiempo de producción no puede ir vacio");
+        }
+        else if(Restricciones.isNullOrEmpty(strCostoProduccion)) {
+            JOptionPane.showMessageDialog(null, "El campo costo de producción no puede ir vacio");
+        }
+        else if(Restricciones.isNullOrEmpty(strTiempoEmpaquetado)) {
+            JOptionPane.showMessageDialog(null, "El campo tiempo de empaquetado no puede ir vacio");
+        }
+        else if(Restricciones.isNullOrEmpty(strCostoEmpaquetado)) {
+            JOptionPane.showMessageDialog(null, "El campo costo de empaquetado no puede ir vacio");
+        }
+        else if(Restricciones.isNullOrEmpty(strTiempoSalida)) {
+            JOptionPane.showMessageDialog(null, "El campo tiempo de salida no puede ir vacio");
+        }
+        else if(Restricciones.isNullOrEmpty(strCostoSalida)) {
+            JOptionPane.showMessageDialog(null, "El campo costo de salida no puede ir vacio");
+        }
+        
+        else if(!Restricciones.soloNumeros(strTiempoInventario)){
+            JOptionPane.showMessageDialog(null, "El campo tiempo de inventario solo acepta numeros enteros");
+        }
+        else if(!Restricciones.soloNumeros(strCostoInventario)){
+            JOptionPane.showMessageDialog(null, "El campo costo de inventario solo acepta numeros enteros");
+        }
+        else if(!Restricciones.soloNumeros(strTiempoProduccion)){
+            JOptionPane.showMessageDialog(null, "El campo tiempo de producción solo acepta numeros enteros");
+        }
+        else if(!Restricciones.soloNumeros(strCostoProduccion)){
+            JOptionPane.showMessageDialog(null, "El campo costo de producción solo acepta numeros enteros");
+        }
+        else if(!Restricciones.soloNumeros(strTiempoEmpaquetado)){
+            JOptionPane.showMessageDialog(null, "El campo tiempo de empaquetado solo acepta numeros enteros");
+        }
+        else if(!Restricciones.soloNumeros(strCostoEmpaquetado)){
+            JOptionPane.showMessageDialog(null, "El campo costo de empaquetado solo acepta numeros enteros");
+        }
+        else if(!Restricciones.soloNumeros(strTiempoSalida)){
+            JOptionPane.showMessageDialog(null, "El campo tiempo de salida solo acepta numeros enteros");
+        }
+        else if(!Restricciones.soloNumeros(strCostoSalida)){
+            JOptionPane.showMessageDialog(null, "El campo costo de salida solo acepta numeros enteros");
+        }
+        
+        else {
+            VaraiblesGlobales.tiempoInventario = Integer.parseInt(strTiempoInventario);
+            VaraiblesGlobales.costoInventario = Integer.parseInt(strTiempoInventario);
+            VaraiblesGlobales.tiempoProduccion = Integer.parseInt(strTiempoProduccion);
+            VaraiblesGlobales.costoProduccion = Integer.parseInt(strCostoProduccion);
+            VaraiblesGlobales.tiempoEmpaquetado = Integer.parseInt(strTiempoEmpaquetado);
+            VaraiblesGlobales.costoEmpaquetado = Integer.parseInt(strCostoEmpaquetado);
+            VaraiblesGlobales.tiempoSalida = Integer.parseInt(strCostoSalida);
+            VaraiblesGlobales.costoSalida = Integer.parseInt(strCostoSalida);
+            
+            VaraiblesGlobales.strTiempoInventario = strTiempoInventario;
+            VaraiblesGlobales.strCostoInventario = strTiempoInventario;
+            VaraiblesGlobales.strTiempoProduccion = strTiempoProduccion;
+            VaraiblesGlobales.strCostoProduccion = strCostoProduccion;
+            VaraiblesGlobales.strTiempoEmpaquetado = strTiempoEmpaquetado;
+            VaraiblesGlobales.strCostoEmpaquetado = strCostoEmpaquetado;
+            VaraiblesGlobales.strTiempoSalida = strCostoSalida;
+            VaraiblesGlobales.strCostoSalida = strCostoSalida;
             
             
             Monkey monkey = new Monkey();
             this.setVisible(false);
-//        }
+        }
         
     }//GEN-LAST:event_btnSimulacionActionPerformed
 

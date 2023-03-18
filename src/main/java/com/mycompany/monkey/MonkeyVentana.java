@@ -14,6 +14,7 @@ import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.OverlayLayout;
 
 
 /**
@@ -24,9 +25,11 @@ public class MonkeyVentana extends JPanel{
     //Label para manejar el tiempo
     private JLabel lbTiempo;
     private JLabel lbTitulo;
-    private JLabel lbPelota;
     private JLabel lbInventario, lbProduccion, lbEmpaquetado, lbSalida;
     private JButton btnRegresar, btnReporte;
+    private JLabel lbTituloInicio,lbTituloInventario, lbTituloProduccion, lbTituloEmpaquetado, lbTituloSalida, lbTituloFinal;
+    private JLabel lbCirculo1,lbCirculo2,lbCirculo3,lbCirculo4,lbCirculo5,
+            lbCirculo6,lbCirculo7,lbCirculo8,lbCirculo9,lbCirculo10;
     
     
     //Declarando constructor para inicializar los componentes
@@ -52,28 +55,103 @@ public class MonkeyVentana extends JPanel{
         hiloTiempo.start();
         
         
-        //Declarando Jlabel de la materia prima
-        lbPelota = new JLabel();
-        lbPelota.setBounds(250,250,20,20);
-        lbPelota.setBackground(Color.red);
-        lbPelota.setOpaque(true);
-        this.add(lbPelota);
+
+        
+        //Declarando Contador de inicio
+        lbTituloInicio = new JLabel("Inicio");
+        lbTituloInicio.setBounds(725,290,35,50);
+        this.add(lbTituloInicio);
+        
+        //Declarando chibolas para inicio
+        lbCirculo1 = new JLabel();
+        lbCirculo1.setBounds(725,325,35,35);
+        lbCirculo1.setBackground(Color.yellow);
+        lbCirculo1.setOpaque(true);
+        this.add(lbCirculo1);
+        
         
         
         //Declarando Estaciones de simulacion Inventario
         lbInventario = new JLabel();
         lbInventario.setBounds(450,390,250,200);
-        lbInventario.setBackground(Color.blue);
+        lbInventario.setBackground(new Color(0, 0, 0, 127)); 
+        lbInventario.setForeground(Color.blue);
         lbInventario.setOpaque(true);
         this.add(lbInventario);
+        //Declarando Titulo contador inventario
+        lbTituloInventario = new JLabel("Inventario: 0");
+        lbTituloInventario.setBounds(470,390,100,50);
+        this.add(lbTituloInventario);
+        //Declarando chibolas para inventario
+        lbCirculo2 = new JLabel();
+        lbCirculo2.setBounds(470,500,35,35);
+        lbCirculo2.setBackground(Color.CYAN);
+        lbCirculo2.setOpaque(true);
+        this.add(lbCirculo2);
+        
+        lbCirculo3 = new JLabel();
+        lbCirculo3.setBounds(515,500,35,35);
+        lbCirculo3.setBackground(Color.CYAN);
+        lbCirculo3.setOpaque(true);
+        this.add(lbCirculo3);
+        
+        lbCirculo4 = new JLabel();
+        lbCirculo4.setBounds(560,500,35,35);
+        lbCirculo4.setBackground(Color.CYAN);
+        lbCirculo4.setOpaque(true);
+        this.add(lbCirculo4);
+        
+        lbCirculo5 = new JLabel();
+        lbCirculo5.setBounds(605,500,35,35);
+        lbCirculo5.setBackground(Color.CYAN);
+        lbCirculo5.setOpaque(true);
+        this.add(lbCirculo5);
+        
+        lbCirculo6 = new JLabel();
+        lbCirculo6.setBounds(650,420,35,35);
+        lbCirculo6.setBackground(Color.CYAN);
+        lbCirculo6.setOpaque(true);
+        this.add(lbCirculo6);
+        
+        
+        //Declarando Chibola intermedia
+        lbCirculo7 = new JLabel();
+        lbCirculo7.setBounds(560,335,35,35);
+        lbCirculo7.setBackground(Color.CYAN);
+        lbCirculo7.setOpaque(true);
+        this.add(lbCirculo7);
         
         
         //Declarando Estaciones de simulacion Produccion
         lbProduccion = new JLabel();
         lbProduccion.setBounds(450,100,250,200);
+        lbProduccion.setBackground(new Color(0, 0, 0, 127)); 
         lbProduccion.setBackground(Color.green);
         lbProduccion.setOpaque(true);
         this.add(lbProduccion);
+        //Declarando Titulo contador inventario
+        lbTituloProduccion = new JLabel("Producción: 0");
+        lbTituloProduccion.setBounds(490,110,100,50);
+        this.add(lbTituloProduccion);
+        //Declarando chibolas para inventario
+        lbCirculo8 = new JLabel();
+        lbCirculo8.setBounds(470,200,35,35);
+        lbCirculo8.setBackground(Color.GREEN);
+        lbCirculo8.setOpaque(true);
+        this.add(lbCirculo8);
+        
+        lbCirculo9 = new JLabel();
+        lbCirculo9.setBounds(515,200,35,35);
+        lbCirculo9.setBackground(Color.GREEN);
+        lbCirculo9.setOpaque(true);
+        this.add(lbCirculo9);
+        
+        //Declarando chibola intermedia
+        lbCirculo10 = new JLabel();
+        lbCirculo10.setBounds(390,200,35,35);
+        lbCirculo10.setBackground(Color.GREEN);
+        lbCirculo10.setOpaque(true);
+        this.add(lbCirculo10);
         
         
         //Declarando Estaciones de simulacion Salida
@@ -107,6 +185,8 @@ public class MonkeyVentana extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 MonkeyMenu ventana = new MonkeyMenu();
                 ventana.setVisible(true);
+//                Monkey monkey = new Monkey();
+//                (monkey.ventana).setVisible(false);
                 //this.setVisible(false);
             }
         });
