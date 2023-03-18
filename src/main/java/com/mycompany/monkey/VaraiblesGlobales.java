@@ -28,4 +28,15 @@ public class VaraiblesGlobales {
     public static String strTiempoSalida;
     public static String strCostoSalida;
     
+    public static boolean iniciar;
+    
+    public static int inicio;
+    public static int inventario;
+    public static int produccion;
+    public static int empaquetado;
+    public static int salida;
+    public static int fin;
+    
+    public static int materiaPrima = 30;
+    
 }
