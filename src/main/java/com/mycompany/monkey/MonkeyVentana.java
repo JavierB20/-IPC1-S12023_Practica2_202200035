@@ -58,8 +58,8 @@ public class MonkeyVentana extends JPanel{
 
         
         //Declarando Contador de inicio
-        lbTituloInicio = new JLabel("Inicio");
-        lbTituloInicio.setBounds(725,290,35,50);
+        lbTituloInicio = new JLabel("Inicio: 30");
+        lbTituloInicio.setBounds(725,290,100,50);
         this.add(lbTituloInicio);
         
         //Declarando chibolas para inicio
@@ -71,16 +71,10 @@ public class MonkeyVentana extends JPanel{
         
         
         
-        //Declarando Estaciones de simulacion Inventario
-        lbInventario = new JLabel();
-        lbInventario.setBounds(450,390,250,200);
-        lbInventario.setBackground(new Color(0, 0, 0, 127)); 
-        lbInventario.setForeground(Color.blue);
-        lbInventario.setOpaque(true);
-        this.add(lbInventario);
+
         //Declarando Titulo contador inventario
         lbTituloInventario = new JLabel("Inventario: 0");
-        lbTituloInventario.setBounds(470,390,100,50);
+        lbTituloInventario.setBounds(470,390,100,100);
         this.add(lbTituloInventario);
         //Declarando chibolas para inventario
         lbCirculo2 = new JLabel();
@@ -112,6 +106,13 @@ public class MonkeyVentana extends JPanel{
         lbCirculo6.setBackground(Color.CYAN);
         lbCirculo6.setOpaque(true);
         this.add(lbCirculo6);
+                //Declarando Estaciones de simulacion Inventario
+        lbInventario = new JLabel();
+        lbInventario.setBounds(450,390,250,200);
+        lbInventario.setForeground(Color.blue);
+        lbInventario.setOpaque(true);
+        this.add(lbInventario);
+        
         
         
         //Declarando Chibola intermedia
@@ -122,13 +123,7 @@ public class MonkeyVentana extends JPanel{
         this.add(lbCirculo7);
         
         
-        //Declarando Estaciones de simulacion Produccion
-        lbProduccion = new JLabel();
-        lbProduccion.setBounds(450,100,250,200);
-        lbProduccion.setBackground(new Color(0, 0, 0, 127)); 
-        lbProduccion.setBackground(Color.green);
-        lbProduccion.setOpaque(true);
-        this.add(lbProduccion);
+
         //Declarando Titulo contador inventario
         lbTituloProduccion = new JLabel("Producción: 0");
         lbTituloProduccion.setBounds(490,110,100,50);
@@ -136,22 +131,31 @@ public class MonkeyVentana extends JPanel{
         //Declarando chibolas para inventario
         lbCirculo8 = new JLabel();
         lbCirculo8.setBounds(470,200,35,35);
-        lbCirculo8.setBackground(Color.GREEN);
+        lbCirculo8.setBackground(Color.gray);
         lbCirculo8.setOpaque(true);
         this.add(lbCirculo8);
         
         lbCirculo9 = new JLabel();
         lbCirculo9.setBounds(515,200,35,35);
-        lbCirculo9.setBackground(Color.GREEN);
+        lbCirculo9.setBackground(Color.gray);
         lbCirculo9.setOpaque(true);
         this.add(lbCirculo9);
+        //Declarando Estaciones de simulacion Produccion
+        lbProduccion = new JLabel();
+        lbProduccion.setBounds(450,100,250,200);
+        lbProduccion.setBackground(new Color(0, 0, 0, 127)); 
+        lbProduccion.setBackground(Color.green);
+        lbProduccion.setOpaque(true);
+        this.add(lbProduccion);        
         
-        //Declarando chibola intermedia
+
+//Declarando chibola intermedia
         lbCirculo10 = new JLabel();
         lbCirculo10.setBounds(390,200,35,35);
         lbCirculo10.setBackground(Color.GREEN);
         lbCirculo10.setOpaque(true);
         this.add(lbCirculo10);
+        
         
         
         //Declarando Estaciones de simulacion Salida
@@ -178,6 +182,12 @@ public class MonkeyVentana extends JPanel{
         btnReporte = new JButton("Reporte");
         btnReporte.setBounds(650,40,100,50);
         add(btnReporte);
+        
+        
+        //Agregando hilos de simulacion
+        HilosMateriaPrima hilosMateriaPrima = new HilosMateriaPrima(lbTituloInicio, lbTituloInventario, lbTituloProduccion);
+        hilosMateriaPrima.start();
+        
         
         //Agregando funcionalidad a los botones
         btnRegresar.addActionListener(new ActionListener() {

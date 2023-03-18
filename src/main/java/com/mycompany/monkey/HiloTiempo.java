@@ -22,6 +22,7 @@ public class HiloTiempo extends Thread {
     }
     
     //metodo para trabjar el hilo del tiempo
+    @Override
     public void run(){
         while(true){
             try {
@@ -36,6 +37,7 @@ public class HiloTiempo extends Thread {
             }
             lbTiempo.setText(min + ":" + seg);
         }
+        
     }
     
 }
