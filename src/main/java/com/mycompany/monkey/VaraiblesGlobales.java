@@ -4,6 +4,8 @@
  */
 package com.mycompany.monkey;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author Javier
@@ -38,5 +40,11 @@ public class VaraiblesGlobales {
     public static int fin;
     
     public static int materiaPrima = 30;
+    
+    public static LinkedList<String> hilosIntermedio1 = new LinkedList<String>();
+    public static LinkedList<String> hilosIntermedio2 = new LinkedList<String>();
+    public static LinkedList<String> hilosIntermedio3 = new LinkedList<String>();
+
+
     
 }
