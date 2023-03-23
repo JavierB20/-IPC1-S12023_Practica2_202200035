@@ -8,6 +8,7 @@ import static java.lang.Thread.sleep;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -17,6 +18,7 @@ import javax.swing.JLabel;
 public class HilosMateriaPrima4 extends Thread{
     
     private JLabel lbTituloSalida, lbTituloFinal;
+    private JButton btnReporte, btnRegresar;
     
     LinkedList<String> hilosSalida = new LinkedList<String>();
     LinkedList<String> hilosFinal = new LinkedList<String>();
@@ -24,9 +26,11 @@ public class HilosMateriaPrima4 extends Thread{
     
     private boolean inicio = true;
     
-    public HilosMateriaPrima4(JLabel lbTituloSalida, JLabel lbTituloFinal){
+    public HilosMateriaPrima4(JLabel lbTituloSalida, JLabel lbTituloFinal, JButton btnRegresar, JButton btnReporte){
         this.lbTituloSalida = lbTituloSalida;
         this.lbTituloFinal = lbTituloFinal;
+        this.btnRegresar = btnRegresar;
+        this.btnReporte = btnReporte;
     }
       
     @Override
@@ -69,6 +73,9 @@ public class HilosMateriaPrima4 extends Thread{
 
             }
             else {
+                //pasar botones de regreso y reporte con propiedad enabked
+                btnReporte.setEnabled(true);
+                btnRegresar.setEnabled(true);
                 inicio = false;
                 break;
             }

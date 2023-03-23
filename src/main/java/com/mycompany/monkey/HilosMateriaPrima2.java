@@ -29,55 +29,60 @@ public class HilosMateriaPrima2 extends Thread{
       
     @Override
     public void run() {
-        while(VaraiblesGlobales.hilosIntermedio1.isEmpty()) {
-            if(!VaraiblesGlobales.hilosIntermedio1.isEmpty()) {
-                inicio = true;
-            }
-        }
         
-        
-                while(inicio) {
-                    try {
-            sleep(VaraiblesGlobales.tiempoProduccion * 1000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(HilosMateriaPrima.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            if(hilosProduccion.size() <= 2 && !VaraiblesGlobales.hilosIntermedio1.isEmpty()){
-                if(VaraiblesGlobales.hilosIntermedio1.get(0) != null) {
-                    if(!VaraiblesGlobales.hilosIntermedio1.isEmpty()) {
-                        primeroIntermedio = VaraiblesGlobales.hilosIntermedio1.get(0);
+        while(!inicio){
+            if(!VaraiblesGlobales.hilosIntermedio1.isEmpty()){
+                System.out.println("YA");
+                //Dara el intervalo de tiempo asignado en el menu
+                try {
+                    sleep(VaraiblesGlobales.tiempoProduccion * 1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(HilosMateriaPrima.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                //Liminatara a que el arreglo de inventario solo tenga 5 objetos y el de inicio tenga algo
+                if(hilosProduccion.size() < 2 && !VaraiblesGlobales.hilosIntermedio1.isEmpty()){
+                    //validar que el arreglo de inicio tenga datos
+                    if(VaraiblesGlobales.hilosIntermedio1.get(0) != null) {
+                        //Variable auxiliar para guardar primera posicion y pasar al segundo arreglo
+                        primeroProduccion = VaraiblesGlobales.hilosIntermedio1.get(0);
                         VaraiblesGlobales.hilosIntermedio1.removeFirst();
-                        hilosProduccion.add(primeroIntermedio);
-                        lbTituloProduccion.setText("Producción: " + hilosProduccion.size());
+                        hilosProduccion.add(primeroProduccion);
+                        lbTituloProduccion.setText("Produccion: " + hilosProduccion.size());
                         
+                        //Cuando haya llegado al limite el arreglo de inventario empezara a mover los datos
                         if(hilosProduccion.size() == 2 && !VaraiblesGlobales.hilosIntermedio1.isEmpty()) {
                             primeroProduccion = hilosProduccion.get(0);  
                             hilosProduccion.removeFirst();
                             VaraiblesGlobales.hilosIntermedio2.add(primeroProduccion);
-                            lbTituloProduccion.setText("Producción: " + hilosProduccion.size());
-//                            System.out.println("Hilo Inventario" + hilosInventario);
-//                            System.out.println("Hilo intermedio1" + hilosIntermedio1);
+                            lbTituloProduccion.setText("Produccion: " + hilosProduccion.size());
                         }
                     }
                 }
+                //Cuando solo hayan datos en inventario los movera al siguiente arreglo
+                else if (!hilosProduccion.isEmpty() && VaraiblesGlobales.hilosIntermedio1.isEmpty()){
+                    primeroProduccion = hilosProduccion.get(0);  
+                    hilosProduccion.removeFirst();
+                    VaraiblesGlobales.hilosIntermedio2.add(primeroProduccion);
+                    lbTituloProduccion.setText("Produccion: " + hilosProduccion.size());
+                }
+                //Cuando ya no hayan mas cosas el buclo se apagara
+                else {
+                    inicio = false;
+                    break;
+                }
             }
-            else if (!hilosProduccion.isEmpty() && VaraiblesGlobales.hilosIntermedio1.isEmpty()){
-                primeroProduccion = hilosProduccion.get(0);  
-                hilosProduccion.removeFirst();
-                VaraiblesGlobales.hilosIntermedio1.add(primeroProduccion);
-                lbTituloProduccion.setText("Producción:  " + hilosProduccion.size());
-//                System.out.println("Hilo Inventario2" + hilosInventario);
-//                System.out.println("Hilo Intermedio2" + hilosIntermedio1);
-
-            }
-            else {
-                inicio = false;
-                break;
-            }
-
+            System.out.println("Aun no");
         }
-    } 
+        
+    }
+
 }
+        
+        
+        
+       
+
     
 
         

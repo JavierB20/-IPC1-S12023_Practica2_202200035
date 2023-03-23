@@ -173,7 +173,7 @@ public class MonkeyVentana extends JPanel{
         
         
         //Declarando Titulo de empaquetado
-        lbEmpaquetado = new JLabel("Salida: 0");
+        lbEmpaquetado = new JLabel("Empaquetado: 0");
         lbEmpaquetado.setBounds(150,120,100,100);
         this.add(lbEmpaquetado);
         //Declarando Estaciones de simulacion Empaquetado
@@ -194,18 +194,6 @@ public class MonkeyVentana extends JPanel{
         add(btnReporte);
         
         
-        //Agregando hilos de simulacion
-        HilosMateriaPrima hilosMateriaPrima = new HilosMateriaPrima(lbTituloInicio, lbTituloInventario);
-        hilosMateriaPrima.start();
-        
-        HilosMateriaPrima2 hilosMateriaPrima2 = new HilosMateriaPrima2(lbTituloProduccion);
-        hilosMateriaPrima2.start();
-        
-        HilosMateriaPrima3 hilosMateriaPrima3 = new HilosMateriaPrima3(lbTituloEmpaquetado);
-        hilosMateriaPrima3.start();
-        
-        HilosMateriaPrima4 hilosMateriaPrima4 = new HilosMateriaPrima4(lbTituloSalida, lbTituloFinal);
-        hilosMateriaPrima4.start();
 
         
         //Agregando funcionalidad a los botones
@@ -263,6 +251,24 @@ public class MonkeyVentana extends JPanel{
             }
         });
         
+//        btnReporte.setEnabled(false);
+//        btnRegresar.setEnabled(false);
+        
+        
+                //Agregando hilos de simulacion
+        HilosMateriaPrima hilosMateriaPrima = new HilosMateriaPrima(lbTituloInicio, lbTituloInventario);
+        
+        HilosMateriaPrima2 hilosMateriaPrima2 = new HilosMateriaPrima2(lbTituloProduccion);
+        
+        HilosMateriaPrima3 hilosMateriaPrima3 = new HilosMateriaPrima3(lbTituloEmpaquetado);
+        
+        HilosMateriaPrima4 hilosMateriaPrima4 = new HilosMateriaPrima4(lbTituloSalida, lbTituloFinal, btnReporte, btnRegresar);
+
+        hilosMateriaPrima.start();
+        hilosMateriaPrima2.start();
+//        hilosMateriaPrima3.start();
+//        hilosMateriaPrima4.start();
+
     }
     
 }

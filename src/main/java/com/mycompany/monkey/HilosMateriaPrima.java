@@ -32,46 +32,50 @@ public class HilosMateriaPrima extends Thread{
     public void run() {
         
  
-        
+        //Iniciara el hilo y llenara el arreglo
         for (int i = 0; i < 10; i++) {
             hilosInicio.add("hilo" + (i +1));
         }
         
+        
+        //Siempre se ejecutara
         while(inicio) {
-                    try {
-            sleep(VaraiblesGlobales.tiempoInventario * 1000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(HilosMateriaPrima.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            
+            //Dara el intervalo de tiempo asignado en el menu
+            try {
+                sleep(VaraiblesGlobales.tiempoInventario * 1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(HilosMateriaPrima.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            //Liminatara a que el arreglo de inventario solo tenga 5 objetos y el de inicio tenga algo
             if(hilosInventario.size() <= 5 && !hilosInicio.isEmpty()){
+                //validar que el arreglo de inicio tenga datos
                 if(hilosInicio.get(0) != null) {
-                    if(!hilosInicio.isEmpty()) {
-                        primeroInicio = hilosInicio.get(0);
-                        hilosInicio.removeFirst();
-                        hilosInventario.add(primeroInicio);
-                        lbTituloInicio.setText("Inicio: " + hilosInicio.size());
+                    //Variable auxiliar para guardar primera posicion y pasar al segundo arreglo
+                    primeroInicio = hilosInicio.get(0);
+                    hilosInicio.removeFirst();
+                    hilosInventario.add(primeroInicio);
+                    lbTituloInicio.setText("Inicio: " + hilosInicio.size());
+                    lbTituloInventario.setText("Inventario: " + hilosInventario.size());
+
+                    //Cuando haya llegado al limite el arreglo de inventario empezara a mover los datos
+                    if(hilosInventario.size() == 5 && !hilosInicio.isEmpty()) {
+                        primeroInventario = hilosInventario.get(0);  
+                        hilosInventario.removeFirst();
+                        VaraiblesGlobales.hilosIntermedio1.add(primeroInventario);
                         lbTituloInventario.setText("Inventario: " + hilosInventario.size());
-                        
-                        if(hilosInventario.size() == 5 && !hilosInicio.isEmpty()) {
-                            primeroInventario = hilosInventario.get(0);  
-                            hilosInventario.removeFirst();
-                            VaraiblesGlobales.hilosIntermedio1.add(primeroInventario);
-                            lbTituloInventario.setText("Inventario: " + hilosInventario.size());
-//                            System.out.println("Hilo Inventario" + hilosInventario);
-//                            System.out.println("Hilo intermedio1" + hilosIntermedio1);
-                        }
                     }
                 }
             }
+            //Cuando solo hayan datos en inventario los movera al siguiente arreglo
             else if (!hilosInventario.isEmpty() && hilosInicio.isEmpty()){
                 primeroInventario = hilosInventario.get(0);  
                 hilosInventario.removeFirst();
                 VaraiblesGlobales.hilosIntermedio1.add(primeroInventario);
                 lbTituloInventario.setText("Inventario: " + hilosInventario.size());
-//                System.out.println("Hilo Inventario2" + hilosInventario);
-//                System.out.println("Hilo Intermedio2" + hilosIntermedio1);
-
             }
+            //Cuando ya no hayan mas cosas el buclo se apagara
             else {
                 inicio = false;
                 break;
