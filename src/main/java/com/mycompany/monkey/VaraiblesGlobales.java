@@ -41,6 +41,12 @@ public class VaraiblesGlobales {
     
     public static int materiaPrima = 30;
     
+    public static LinkedList<String> hilosInventario = new LinkedList<String>();
+    public static LinkedList<String> hilosProduccion = new LinkedList<String>();
+    public static LinkedList<String> hilosEmpaquetado = new LinkedList<String>();
+    public static LinkedList<String> hilosSalida = new LinkedList<String>();
+
+    
     public static LinkedList<String> hilosIntermedio1 = new LinkedList<String>();
     public static LinkedList<String> hilosIntermedio2 = new LinkedList<String>();
     public static LinkedList<String> hilosIntermedio3 = new LinkedList<String>();

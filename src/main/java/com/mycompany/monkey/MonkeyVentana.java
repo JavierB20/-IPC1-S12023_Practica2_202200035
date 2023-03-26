@@ -29,7 +29,8 @@ public class MonkeyVentana extends JPanel{
     private JButton btnRegresar, btnReporte;
     private JLabel lbTituloInicio,lbTituloInventario, lbTituloProduccion, lbTituloEmpaquetado, lbTituloSalida, lbTituloFinal;
     private JLabel lbCirculo1,lbCirculo2,lbCirculo3,lbCirculo4,lbCirculo5,
-            lbCirculo6,lbCirculo7,lbCirculo8,lbCirculo9,lbCirculo10;
+            lbCirculo6,lbCirculo7,lbCirculo8,lbCirculo9,lbCirculo10, lbCirculo11,lbCirculo12,lbCirculo13,lbCirculo14,lbCirculo15,
+            lbCirculo16,lbCirculo17,lbCirculo18,lbCirculo19;
     
     
     //Declarando constructor para inicializar los componentes
@@ -155,20 +156,6 @@ public class MonkeyVentana extends JPanel{
         lbCirculo10.setBackground(Color.GREEN);
         lbCirculo10.setOpaque(true);
         this.add(lbCirculo10);
-        
-        
-        
-
-        //Declarando Titulo de Salida
-        lbTituloSalida = new JLabel("Salida: 0");
-        lbTituloSalida.setBounds(150,420,100,100);
-        this.add(lbTituloSalida);
-        //Declarando Estaciones de simulacion Salida
-        lbSalida = new JLabel();
-        lbSalida.setBounds(100,390,250,200);
-        lbSalida.setBackground(Color.orange);
-        lbSalida.setOpaque(true);
-        this.add(lbSalida);
 
         
         
@@ -176,13 +163,83 @@ public class MonkeyVentana extends JPanel{
         lbEmpaquetado = new JLabel("Empaquetado: 0");
         lbEmpaquetado.setBounds(150,120,100,100);
         this.add(lbEmpaquetado);
+        //Declarando chibolas de empaquetado
+        lbCirculo11 = new JLabel();
+        lbCirculo11.setBounds(300,200,35,35);
+        lbCirculo11.setBackground(Color.PINK);
+        lbCirculo11.setOpaque(true);
+        this.add(lbCirculo11);
+        
+        lbCirculo12 = new JLabel();
+        lbCirculo12.setBounds(255,200,35,35);
+        lbCirculo12.setBackground(Color.PINK);
+        lbCirculo12.setOpaque(true);
+        this.add(lbCirculo12);
+                
+        lbCirculo13 = new JLabel();
+        lbCirculo13.setBounds(210,200,35,35);
+        lbCirculo13.setBackground(Color.PINK);
+        lbCirculo13.setOpaque(true);
+        this.add(lbCirculo13);
         //Declarando Estaciones de simulacion Empaquetado
         lbEmpaquetado = new JLabel();
-        lbEmpaquetado.setBounds(100,100,250,200);
+        lbEmpaquetado.setBounds(110,110,250,200);
         lbEmpaquetado.setBackground(Color.MAGENTA);
         lbEmpaquetado.setOpaque(true);
         this.add(lbEmpaquetado);
         
+        //Declarando chibola intermedia
+        lbCirculo14 = new JLabel();
+        lbCirculo14.setBounds(210,320,35,35);
+        lbCirculo14.setBackground(Color.PINK);
+        lbCirculo14.setOpaque(true);
+        this.add(lbCirculo14);
+        
+        //Declarando Titulo de Salida
+        lbTituloSalida = new JLabel("Salida: 0");
+        lbTituloSalida.setBounds(150,420,100,100);
+        this.add(lbTituloSalida);
+        //Declarando chibolas de Salida
+        lbCirculo15 = new JLabel();
+        lbCirculo15.setBounds(300,500,35,35);
+        lbCirculo15.setBackground(Color.red);
+        lbCirculo15.setOpaque(true);
+        this.add(lbCirculo15);
+                
+        lbCirculo16 = new JLabel();
+        lbCirculo16.setBounds(255,500,35,35);
+        lbCirculo16.setBackground(Color.red);
+        lbCirculo16.setOpaque(true);
+        this.add(lbCirculo16);
+                        
+        lbCirculo17 = new JLabel();
+        lbCirculo17.setBounds(210,500,35,35);
+        lbCirculo17.setBackground(Color.red);
+        lbCirculo17.setOpaque(true);
+        this.add(lbCirculo17);
+                        
+        lbCirculo18 = new JLabel();
+        lbCirculo18.setBounds(165,500,35,35);
+        lbCirculo18.setBackground(Color.red);
+        lbCirculo18.setOpaque(true);
+        this.add(lbCirculo18);
+        //Declarando Estaciones de simulacion Salida
+        lbSalida = new JLabel();
+        lbSalida.setBounds(100,390,250,200);
+        lbSalida.setBackground(Color.orange);
+        lbSalida.setOpaque(true);
+        this.add(lbSalida);
+        
+        //Declarando Titulo de Salida
+        lbTituloSalida = new JLabel("Fin: 0");
+        lbTituloSalida.setBounds(50,290,100,100);
+        this.add(lbTituloSalida);
+        //Declarando chibola de salida
+        lbCirculo18 = new JLabel();
+        lbCirculo18.setBounds(50,325,35,35);
+        lbCirculo18.setBackground(Color.red);
+        lbCirculo18.setOpaque(true);
+        this.add(lbCirculo18);
         
         //Declarando botones
         btnRegresar = new JButton("Regresar");
@@ -253,7 +310,7 @@ public class MonkeyVentana extends JPanel{
         
 //        btnReporte.setEnabled(false);
 //        btnRegresar.setEnabled(false);
-        
+//        
         
                 //Agregando hilos de simulacion
         HilosMateriaPrima hilosMateriaPrima = new HilosMateriaPrima(lbTituloInicio, lbTituloInventario);
@@ -262,12 +319,12 @@ public class MonkeyVentana extends JPanel{
         
         HilosMateriaPrima3 hilosMateriaPrima3 = new HilosMateriaPrima3(lbTituloEmpaquetado);
         
-        HilosMateriaPrima4 hilosMateriaPrima4 = new HilosMateriaPrima4(lbTituloSalida, lbTituloFinal, btnReporte, btnRegresar);
+        HilosMateriaPrima4 hilosMateriaPrima4 = new HilosMateriaPrima4(lbTituloSalida, lbTituloFinal, btnReporte, btnRegresar, lbTiempo);
 
         hilosMateriaPrima.start();
         hilosMateriaPrima2.start();
-//        hilosMateriaPrima3.start();
-//        hilosMateriaPrima4.start();
+        hilosMateriaPrima3.start();
+        hilosMateriaPrima4.start();
 
     }
     

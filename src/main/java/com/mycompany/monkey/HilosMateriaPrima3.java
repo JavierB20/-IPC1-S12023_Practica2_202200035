@@ -19,7 +19,7 @@ public class HilosMateriaPrima3 extends Thread{
     private JLabel lbTituloEmpaquetado;
     
     LinkedList<String> hilosEmpaquetado = new LinkedList<String>();
-    private String primeroIntermedio, primeroProduccion, primeroIntermedio2;
+    private String primeroIntermedio, primeroIntermedio2;
     
     private boolean inicio = true;
     
@@ -30,47 +30,52 @@ public class HilosMateriaPrima3 extends Thread{
     @Override
     public void run() {
         
-        while(inicio) {
-        try {
-            sleep(VaraiblesGlobales.tiempoEmpaquetado * 1000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(HilosMateriaPrima.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            if(hilosEmpaquetado.size() <= 3 && !VaraiblesGlobales.hilosIntermedio2.isEmpty()){
-                if(VaraiblesGlobales.hilosIntermedio2.get(0) != null) {
-                    if(!VaraiblesGlobales.hilosIntermedio2.isEmpty()) {
+        while(!inicio){
+            if(!VaraiblesGlobales.hilosIntermedio2.isEmpty()){
+                System.out.println("YA hilo 3");
+                //Dara el intervalo de tiempo asignado en el menu
+                try {
+                    sleep(VaraiblesGlobales.tiempoEmpaquetado * 1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(HilosMateriaPrima3.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                //Liminatara a que el arreglo de produccion solo tenga 2 objetos y el de inicio tenga algo
+                if(VaraiblesGlobales.hilosEmpaquetado.size() < 3 && !VaraiblesGlobales.hilosIntermedio2.isEmpty()){
+                    //validar que el arreglo de inicio tenga datos
+                    if(VaraiblesGlobales.hilosIntermedio2.get(0) != null) {
+                        //Variable auxiliar para guardar primera posicion y pasar al segundo arreglo
                         primeroIntermedio = VaraiblesGlobales.hilosIntermedio2.get(0);
                         VaraiblesGlobales.hilosIntermedio2.removeFirst();
-                        hilosEmpaquetado.add(primeroIntermedio);
-                        lbTituloEmpaquetado.setText("Empaquetado: " + hilosEmpaquetado.size());
+                        VaraiblesGlobales.hilosEmpaquetado.add(primeroIntermedio);
+                        lbTituloEmpaquetado.setText("Empaquetado: " + VaraiblesGlobales.hilosEmpaquetado.size());
                         
-                        if(hilosEmpaquetado.size() == 3 && !VaraiblesGlobales.hilosIntermedio2.isEmpty()) {
-                            primeroProduccion = hilosEmpaquetado.get(0);  
-                            hilosEmpaquetado.removeFirst();
-                            VaraiblesGlobales.hilosIntermedio3.add(primeroProduccion);
-                            lbTituloEmpaquetado.setText("Empaquetado: " + hilosEmpaquetado.size());
-//                            System.out.println("Hilo Inventario" + hilosInventario);
-//                            System.out.println("Hilo intermedio1" + hilosIntermedio1);
+                        //Cuando haya llegado al limite el arreglo de inventario empezara a mover los datos
+                        if(VaraiblesGlobales.hilosEmpaquetado.size() == 3 && !VaraiblesGlobales.hilosIntermedio2.isEmpty()) {
+                            primeroIntermedio2 = VaraiblesGlobales.hilosEmpaquetado.get(0);  
+                            VaraiblesGlobales.hilosEmpaquetado.removeFirst();
+                            VaraiblesGlobales.hilosIntermedio3.add(primeroIntermedio2);
+                            lbTituloEmpaquetado.setText("Empaquetado: " + VaraiblesGlobales.hilosEmpaquetado.size());
                         }
                     }
                 }
+                //Cuando solo hayan datos en inventario los movera al siguiente arreglo
+                else if (!VaraiblesGlobales.hilosEmpaquetado.isEmpty() && VaraiblesGlobales.hilosIntermedio2.isEmpty()){
+                    primeroIntermedio2 = VaraiblesGlobales.hilosEmpaquetado.get(0);  
+                    VaraiblesGlobales.hilosEmpaquetado.removeFirst();
+                    VaraiblesGlobales.hilosIntermedio3.add(primeroIntermedio2);
+                    lbTituloEmpaquetado.setText("Empaquetado: " + VaraiblesGlobales.hilosEmpaquetado.size());
+                }
+                //Cuando ya no hayan mas cosas el buclo se apagara
+                else if (VaraiblesGlobales.hilosIntermedio2.isEmpty() && VaraiblesGlobales.hilosEmpaquetado.isEmpty() && VaraiblesGlobales.hilosProduccion.isEmpty()){
+                    inicio = false;
+                    break;
+                }
             }
-            else if (!hilosEmpaquetado.isEmpty() && VaraiblesGlobales.hilosIntermedio2.isEmpty()){
-                primeroProduccion = hilosEmpaquetado.get(0);  
-                hilosEmpaquetado.removeFirst();
-                VaraiblesGlobales.hilosIntermedio3.add(primeroProduccion);
-                lbTituloEmpaquetado.setText("Producción:  " + hilosEmpaquetado.size());
-//                System.out.println("Hilo Inventario2" + hilosInventario);
-//                System.out.println("Hilo Intermedio2" + hilosIntermedio1);
-
-            }
-            else {
-                inicio = false;
-                break;
-            }
-
+            System.out.println("Aun no h3");
         }
-    } 
+        
+    }
 }
     
 

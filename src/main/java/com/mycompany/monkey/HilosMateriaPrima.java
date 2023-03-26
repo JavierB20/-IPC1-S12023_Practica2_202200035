@@ -18,7 +18,6 @@ public class HilosMateriaPrima extends Thread{
     private JLabel lbTituloInicio, lbTituloInventario;
     
     LinkedList<String> hilosInicio = new LinkedList<String>();
-    LinkedList<String> hilosInventario = new LinkedList<String>();
     private String primeroInicio, primeroInventario;
     
     private boolean inicio = true;
@@ -49,31 +48,31 @@ public class HilosMateriaPrima extends Thread{
             }
             
             //Liminatara a que el arreglo de inventario solo tenga 5 objetos y el de inicio tenga algo
-            if(hilosInventario.size() <= 5 && !hilosInicio.isEmpty()){
+            if(VaraiblesGlobales.hilosInventario.size() <= 5 && !hilosInicio.isEmpty()){
                 //validar que el arreglo de inicio tenga datos
                 if(hilosInicio.get(0) != null) {
                     //Variable auxiliar para guardar primera posicion y pasar al segundo arreglo
                     primeroInicio = hilosInicio.get(0);
                     hilosInicio.removeFirst();
-                    hilosInventario.add(primeroInicio);
+                    VaraiblesGlobales.hilosInventario.add(primeroInicio);
                     lbTituloInicio.setText("Inicio: " + hilosInicio.size());
-                    lbTituloInventario.setText("Inventario: " + hilosInventario.size());
+                    lbTituloInventario.setText("Inventario: " + VaraiblesGlobales.hilosInventario.size());
 
                     //Cuando haya llegado al limite el arreglo de inventario empezara a mover los datos
-                    if(hilosInventario.size() == 5 && !hilosInicio.isEmpty()) {
-                        primeroInventario = hilosInventario.get(0);  
-                        hilosInventario.removeFirst();
+                    if(VaraiblesGlobales.hilosInventario.size() == 5 && !hilosInicio.isEmpty()) {
+                        primeroInventario = VaraiblesGlobales.hilosInventario.get(0);  
+                        VaraiblesGlobales.hilosInventario.removeFirst();
                         VaraiblesGlobales.hilosIntermedio1.add(primeroInventario);
-                        lbTituloInventario.setText("Inventario: " + hilosInventario.size());
+                        lbTituloInventario.setText("Inventario: " + VaraiblesGlobales.hilosInventario.size());
                     }
                 }
             }
             //Cuando solo hayan datos en inventario los movera al siguiente arreglo
-            else if (!hilosInventario.isEmpty() && hilosInicio.isEmpty()){
-                primeroInventario = hilosInventario.get(0);  
-                hilosInventario.removeFirst();
+            else if (!VaraiblesGlobales.hilosInventario.isEmpty() && hilosInicio.isEmpty()){
+                primeroInventario = VaraiblesGlobales.hilosInventario.get(0);  
+                VaraiblesGlobales.hilosInventario.removeFirst();
                 VaraiblesGlobales.hilosIntermedio1.add(primeroInventario);
-                lbTituloInventario.setText("Inventario: " + hilosInventario.size());
+                lbTituloInventario.setText("Inventario: " + VaraiblesGlobales.hilosInventario.size());
             }
             //Cuando ya no hayan mas cosas el buclo se apagara
             else {
